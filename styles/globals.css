@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@400;500;600;700;800;900&display=swap');
+
+@layer base {
+  :root {
+    --bg-primary: rgb(17, 23, 49);
+    --bg-secondary: rgb(32, 23, 54);
+    --bg-glass-primary: rgba(17, 23, 49, .8);
+    --bg-glass-secondary: rgba(32, 23, 54, .8);
+    --text-blue: #86E5FF;
+    --text-pink: #F472B6;
+    --text-primary: #fff;
+    --text-secondary: #a1a4b8;
+    /* #282f4e */
+  }
+
+  html {
+    @apply bg-gradient-to-tr from-bg-primary to-bg-secondary min-h-screen text-text-secondary font-medium scroll-smooth
+  }
+
+  body {
+    @apply overflow-x-hidden text-sm sm:text-base
+  }
+}
+
+@layer utilities {
+  .custom-container {
+    @apply px-4 sm:px-12 lg:px-32
+  }
+
+  .animation-delay-75 {
+    animation-delay: 75ms;
+  }
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+  .animation-delay-1000 {
+    animation-delay: 1s;
+  }
+}
