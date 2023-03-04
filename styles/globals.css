@@ -12,17 +12,20 @@
     --bg-glass-secondary: rgba(32, 23, 54, .8);
     --text-blue: #86E5FF;
     --text-pink: #F472B6;
-    --text-primary: #fff;
+    --text-primary: #f3f4f6;
     --text-secondary: #a1a4b8;
     /* #282f4e */
+    /* #232842 */
   }
 
+  * { @apply font-jakartaSans}
+
   html {
-    @apply bg-gradient-to-tr from-bg-primary to-bg-secondary min-h-screen text-text-secondary font-medium scroll-smooth
+    @apply bg-gradient-to-tr from-bg-primary to-bg-secondary min-h-screen text-text-secondary scroll-smooth
   }
 
   body {
-    @apply overflow-x-hidden text-sm sm:text-base
+    @apply overflow-x-hidden text-sm font-normal
   }
 }
 

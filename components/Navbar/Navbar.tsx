@@ -28,14 +28,14 @@ const Navbar = () => {
           <div className="bg-text-pink h-2 w-2 rounded-full"></div>
           Raj Alam
         </div>
-        <div className="gap-10 items-center font-jakartaSans lg:flex hidden">
+        <div className="gap-10 items-center font-jakartaSans lg:flex hidden font-medium">
             {navLinks.map(link => <Link key={link.name} href={link.href}>{link.name}</Link>)}
         </div>
         <div className="gap-4 items-center lg:flex hidden">
             <div className="flex gap-2">
               <DarkModeOutlinedIcon className="text-text-blue" />
             </div>
-            <div className="bg-[#282f4e] h-6 w-[2px] self-center"></div>
+            <div className="bg-[#232842] h-6 w-[2px] self-center"></div>
             <div className="flex gap-2">
                 <LinkedInIcon className="text-blue-400" />
                 <GitHubIcon />

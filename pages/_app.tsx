@@ -5,7 +5,7 @@ import { Inter, Yellowtail } from 'next/font/google'
 const jakartaSans = Inter({
   subsets: ["latin"],
   variable: "--jakartaSans",
-  weight: ["100", "200", "400", "500", "600", "700", "800", "900"]
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"]
 })
 
 const yellowTail = Yellowtail({
