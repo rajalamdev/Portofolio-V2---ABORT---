@@ -8,10 +8,11 @@
   :root {
     --bg-primary: rgb(17, 23, 49);
     --bg-secondary: rgb(32, 23, 54);
+    --bg-third: #232842;
     --bg-glass-primary: rgba(17, 23, 49, .8);
     --bg-glass-secondary: rgba(32, 23, 54, .8);
-    --text-blue: #86E5FF;
-    --text-pink: #F472B6;
+    --text-blue: rgb(134, 229, 255);
+    --text-pink: rgb(244, 114, 182);
     --text-primary: #f3f4f6;
     --text-secondary: #a1a4b8;
     /* #282f4e */

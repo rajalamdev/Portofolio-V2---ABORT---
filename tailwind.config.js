@@ -24,6 +24,7 @@ module.exports = {
         'text-secondary': 'var(--text-secondary)',
         'bg-glass-primary': 'var(--bg-glass-primary)',
         'bg-glass-secondary': 'var(--bg-glass-secondary)',
+        'bg-third': 'var(--bg-third)',        
       },
       keyframes: {
         wave: {

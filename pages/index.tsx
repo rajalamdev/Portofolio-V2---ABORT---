@@ -54,7 +54,7 @@ export default function Home() {
                 <span className="underline">Have any questions?</span>
               </Link>
             </div>
-            <div className='w-full h-full hidden md:block relative flex-1 -z-10 md:z-10'>
+            <div className='w-full h-full hidden md:block relative flex-1 -z-10 md:z-10 cursor-grab active:cursor-grabbing'>
                 <Spline scene="https://prod.spline.design/lz89iZ289zK7zc8q/scene.splinecode" className='lg:scale-[.60] md:scale-50 absolute md:-top-52 md:right-80 lg:-top-52 lg:right-72' />
             </div>
             <div className='w-full absolute bottom-10 flex z-20 justify-center text-text-primary'>
