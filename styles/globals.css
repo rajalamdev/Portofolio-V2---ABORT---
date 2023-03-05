@@ -17,9 +17,10 @@
     --text-secondary: #a1a4b8;
     /* #282f4e */
     /* #232842 */
+    /* #4B5563 */
   }
 
-  * { @apply font-jakartaSans}
+  * { @apply font-jakartaSans box-border}
 
   html {
     @apply bg-gradient-to-tr from-bg-primary to-bg-secondary min-h-screen text-text-secondary scroll-smooth
@@ -32,7 +33,7 @@
 
 @layer utilities {
   .custom-container {
-    @apply px-4 sm:px-12 lg:px-32
+    @apply px-4 sm:px-12 lg:px-32 
   }
 
   .animation-delay-75 {

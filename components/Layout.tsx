@@ -7,7 +7,7 @@ const Layout = ({children}: {children: React.ReactNode}) => {
         backdrop-blur-md z-30">
             <Navbar />
         </header>
-        <main className="custom-container">
+        <main className="custom-container py-12">
             {children}
         </main>
     </>

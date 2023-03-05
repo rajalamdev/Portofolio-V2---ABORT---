@@ -2,6 +2,7 @@ import Link from "next/link"
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
+import InstagramIcon from '@mui/icons-material/Instagram';
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
@@ -23,15 +24,15 @@ const Navbar = () => {
 
   return (
     <nav className="flex justify-between py-6 custom-container text-sm">   
-        <div className="text-text-primary text-2xl sm:text-3xl font-yellowTail flex items-center gap-1">
+        <div className="text-text-primary text-2xl sm:text-3xl font-yellowTail flex items-center gap-1 flex-1">
           <div className="bg-text-blue h-2 w-2 rounded-full"></div>
           <div className="bg-text-pink h-2 w-2 rounded-full"></div>
           Raj Alam
         </div>
-        <div className="gap-10 items-center font-jakartaSans lg:flex hidden font-medium">
+        <div className="gap-10 items-center font-jakartaSans lg:flex hidden font-medium flex-2 justify-center">
             {navLinks.map(link => <Link key={link.name} href={link.href}>{link.name}</Link>)}
         </div>
-        <div className="gap-4 items-center lg:flex hidden">
+        <div className="gap-4 items-center lg:flex hidden flex-1 justify-end">
             <div className="flex gap-2">
               <DarkModeOutlinedIcon className="text-text-blue" />
             </div>
@@ -39,6 +40,7 @@ const Navbar = () => {
             <div className="flex gap-2">
                 <LinkedInIcon className="text-blue-400" />
                 <GitHubIcon />
+                <InstagramIcon className="text-pink-400" />
             </div>
         </div>
     </nav>

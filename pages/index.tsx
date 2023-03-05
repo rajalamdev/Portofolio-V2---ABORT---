@@ -1,19 +1,70 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import { Plus_Jakarta_Sans } from 'next/font/google'
-import Navbar from '@/components/Navbar/Navbar'
 import Link from 'next/link';
 import Spline from '@splinetool/react-spline';
 
-import TextsmsIcon from '@mui/icons-material/Textsms';
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
 import Layout from '@/components/Layout';
-import FeaturedBlog from '@/components/FeaturedBlog';
+import FeaturedBlog from '@/components/Blog/FeaturedBlog';
+import Blogs from '@/components/Blog/Blogs';
+import { useState } from 'react';
 
-const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ['latin'] })
+const jakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"]
+});
 
 export default function Home() {
+  const [loadingSpline, setLoadingSpline] = useState(true);
+
+  const topFeaturedBlog = 
+    {
+      id: 1,
+      title:"Curhat tentang sistem pendidikan yang ada di indonesia",
+      read: 6,
+      views: 334,
+      date: "January 20, 3400",
+      headline: "disini gwe akan membahas seluk beluk pendidikan yang ada di indonesia, ini akan menjadi pembahasan yang cukup menarik",
+      categories: ["curhat", "pendidikan"],
+      slug: "curhat-tentang",
+    }
+  
+
+  const featuredBlogs = [
+    {
+        id: 2,
+        image: "https://images.unsplash.com/photo-1676495090310-f1ba77badd1e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY3ODAxOTQ3OQ&ixlib=rb-4.0.3&q=80&w=1080",
+        title: "lorem ipsum dolor kamu jamet",
+        read: 24,
+        views: 2424,
+        date: "February 18, 2023",
+        headline: "what is lorem ipsum dolor asu kabeh?",
+        categories: ["random", "meme", "awikawok"],
+        slug: "lorem-dolor"
+    },
+    {
+        id: 3,
+        image: "https://images.unsplash.com/photo-1676044951622-85085eb5eeee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY3ODAxOTQ5Mw&ixlib=rb-4.0.3&q=80&w=1080",
+        title: "lorem ipsum dolor kamu jamet",
+        read: 24,
+        views: 2424,
+        date: "February 18, 2023",
+        headline: "what is lorem ipsum dolor asu kabeh?",
+        categories: ["random", "meme", "awikawok"],
+        slug: "lorem-dolor"
+    },
+    {
+      id: 4,
+      image: "https://images.unsplash.com/photo-1677108353411-62aed3a13c77?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY3ODAxOTUyNw&ixlib=rb-4.0.3&q=80&w=1080",
+      title: "lorem ipsum dolor kamu jamet",
+      read: 24,
+      views: 2424,
+      date: "February 18, 2023",
+      headline: "what is lorem ipsum dolor asu kabeh?",
+      categories: ["random", "meme", "awikawok"],
+      slug: "lorem-dolor"
+  },
+   ] 
   return (
     <>
       <Head>
@@ -23,7 +74,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-          <div className={`font-jakartaSans flex h-[87vh] pt-12 relative flex-wrap font-medium`}>
+          <div className={`${jakartaSans.className} flex h-[87vh] relative flex-wrap font-medium`}>
             <div className="max-w-[500px] flex flex-col gap-6 relative z-20">
               <div className="flex gap-2 text-text-pink items-center">
                 <span className="bg-text-pink h-2 w-2 rounded-full block"></span>
@@ -55,7 +106,15 @@ export default function Home() {
               </Link>
             </div>
             <div className='w-full h-full hidden md:block relative flex-1 -z-10 md:z-10 cursor-grab active:cursor-grabbing'>
-                <Spline scene="https://prod.spline.design/lz89iZ289zK7zc8q/scene.splinecode" className='lg:scale-[.60] md:scale-50 absolute md:-top-52 md:right-80 lg:-top-52 lg:right-72' />
+                {loadingSpline && <div className='absolute md:left-32 lg:left-52 top-32 animate-pulse'>Rendered spline...</div>}
+                <Spline onLoad={() => {
+                  setTimeout(() => {
+                    setLoadingSpline(false)
+                    }, 100)
+                  }} 
+                  scene="https://prod.spline.design/lz89iZ289zK7zc8q/scene.splinecode" 
+                  className='lg:scale-[.60] md:scale-50 absolute md:-top-52 md:right-80 lg:-top-52 lg:right-72' 
+                />
             </div>
             <div className='w-full absolute bottom-10 flex z-20 justify-center text-text-primary'>
               <a href="#intro">
@@ -63,8 +122,13 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <article className='h-screen pt-24' id='intro'>
-            <FeaturedBlog />
+          <article className='pt-24' id='intro'>
+            <FeaturedBlog topFeaturedBlog={topFeaturedBlog} />
+            <Blogs blogs={featuredBlogs} />
+            <Link className="hover:scale-105 duration-100 transition-all inline-block px-4 py-2 border border-[#4B5563] text-text-primary rounded mt-4" href="/blog">See More Blog</Link>
+          </article>
+          <article className='pt-24'>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas minus perferendis incidunt? Corrupti ratione enim ducimus minus repellat est quod illo aperiam eum blanditiis, similique iste. Accusamus dignissimos perferendis optio quia odio aliquid repudiandae rem sed beatae dolorem. Iste at odio, voluptatem vel repellendus saepe alias quaerat ab hic nemo omnis. Molestias similique doloribus, est minima amet incidunt modi provident velit rerum necessitatibus, deleniti rem animi deserunt odio illo consectetur ullam voluptatum autem quo perspiciatis praesentium porro. Iusto beatae ipsa maxime doloribus perspiciatis itaque asperiores aut pariatur voluptate provident aliquam culpa voluptas sequi laborum ducimus reiciendis velit, odit nobis? Commodi.
           </article>
     </Layout>
     </>
