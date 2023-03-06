@@ -20,7 +20,7 @@ const InfoBlog = (props: InfoBlog) => {
             <LanguageIcon className='text-sm' />
             Indonesia
         </div> */}
-        <h3 className="text-text-primary text-xl font-bold mb-2">
+        <h3 className="text-text-primary text-lg font-bold mb-2">
             {props.title}
         </h3>
         <div className="flex gap-4 mb-4 font-medium">

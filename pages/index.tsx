@@ -9,6 +9,7 @@ import Layout from '@/components/Layout';
 import FeaturedBlog from '@/components/Blog/FeaturedBlog';
 import Blogs from '@/components/Blog/Blogs';
 import { useState } from 'react';
+import ProjectCard from '@/components/Project/ProjectCard';
 
 const jakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"]
@@ -65,6 +66,42 @@ export default function Home() {
       slug: "lorem-dolor"
   },
    ] 
+
+   const featuredProject = [
+    {
+        id: 2,
+        image: "https://images.unsplash.com/photo-1676495090310-f1ba77badd1e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY3ODAxOTQ3OQ&ixlib=rb-4.0.3&q=80&w=1080",
+        title: "lorem ipsum dolor kamu jamet",
+        read: 24,
+        views: 2424,
+        date: "February 18, 2023",
+        headline: "what is lorem ipsum dolor asu kabeh?",
+        languanges: ["random", "meme", "awikawok"],
+        slug: "lorem-dolor"
+    },
+    {
+        id: 3,
+        image: "https://images.unsplash.com/photo-1676044951622-85085eb5eeee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY3ODAxOTQ5Mw&ixlib=rb-4.0.3&q=80&w=1080",
+        title: "lorem ipsum dolor kamu jamet",
+        read: 24,
+        views: 2424,
+        date: "February 18, 2023",
+        headline: "what is lorem ipsum dolor asu kabeh?",
+        languanges: ["random", "meme", "awikawok"],
+        slug: "lorem-dolor"
+    },
+    {
+      id: 4,
+      image: "https://images.unsplash.com/photo-1677108353411-62aed3a13c77?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY3ODAxOTUyNw&ixlib=rb-4.0.3&q=80&w=1080",
+      title: "lorem ipsum dolor kamu jamet",
+      read: 24,
+      views: 2424,
+      date: "February 18, 2023",
+      headline: "what is lorem ipsum dolor asu kabeh?",
+      languanges: ["random", "meme", "awikawok"],
+      slug: "lorem-dolor"
+  },
+   ] 
   return (
     <>
       <Head>
@@ -113,7 +150,7 @@ export default function Home() {
                     }, 100)
                   }} 
                   scene="https://prod.spline.design/lz89iZ289zK7zc8q/scene.splinecode" 
-                  className='lg:scale-[.60] md:scale-50 absolute md:-top-52 md:right-80 lg:-top-52 lg:right-72' 
+                  className='lg:scale-[.60] md:scale-50 absolute md:right-80 -top-80 lg:right-72' 
                 />
             </div>
             <div className='w-full absolute bottom-10 flex z-20 justify-center text-text-primary'>
@@ -127,9 +164,16 @@ export default function Home() {
             <Blogs blogs={featuredBlogs} />
             <Link className="hover:scale-105 duration-100 transition-all inline-block px-4 py-2 border border-[#4B5563] text-text-primary rounded mt-4" href="/blog">See More Blog</Link>
           </article>
-          <article className='pt-24'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas minus perferendis incidunt? Corrupti ratione enim ducimus minus repellat est quod illo aperiam eum blanditiis, similique iste. Accusamus dignissimos perferendis optio quia odio aliquid repudiandae rem sed beatae dolorem. Iste at odio, voluptatem vel repellendus saepe alias quaerat ab hic nemo omnis. Molestias similique doloribus, est minima amet incidunt modi provident velit rerum necessitatibus, deleniti rem animi deserunt odio illo consectetur ullam voluptatum autem quo perspiciatis praesentium porro. Iusto beatae ipsa maxime doloribus perspiciatis itaque asperiores aut pariatur voluptate provident aliquam culpa voluptas sequi laborum ducimus reiciendis velit, odit nobis? Commodi.
-          </article>
+          <section className='pt-24'>
+            <h2 className="text-xl mb-8 w-max font-bold text-text-primary border-b pb-1 border-dashed border-text-pink">Featured Projects</h2>
+            <article className='grid gap-4 md:grid-cols-2 lg:grid-cols-3'>
+              {featuredProject.map(project => {
+                return (
+                  <ProjectCard projectItem={project} />
+                )
+              })}
+            </article>
+          </section>
     </Layout>
     </>
   )
