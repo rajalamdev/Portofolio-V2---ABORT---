@@ -143,7 +143,7 @@ export default function Home() {
               </Link>
             </div>
             <div className='w-full h-full hidden md:block relative flex-1 -z-10 md:z-10 cursor-grab active:cursor-grabbing'>
-                {/* {loadingSpline && <div className='absolute md:left-32 lg:left-52 top-32 animate-pulse'>Rendered spline...</div>}
+                {loadingSpline && <div className='absolute md:left-32 lg:left-52 top-32 animate-pulse'>Rendered spline...</div>}
                 <Spline onLoad={() => {
                   setTimeout(() => {
                     setLoadingSpline(false)
@@ -151,7 +151,7 @@ export default function Home() {
                   }} 
                   scene="https://prod.spline.design/lz89iZ289zK7zc8q/scene.splinecode" 
                   className='lg:scale-[.45] md:scale-[.45] absolute md:right-96 -top-72 lg:right-64' 
-                /> */}
+                />
             </div>
             <div className='w-full absolute bottom-16 sm:bottom-24 flex z-20 justify-center text-text-primary'>
               <a href="#intro">
