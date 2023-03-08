@@ -6,10 +6,10 @@ import Spline from '@splinetool/react-spline';
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
 import Layout from '@/components/Layout';
-import FeaturedBlog from '@/components/Blog/FeaturedBlog';
 import Blogs from '@/components/Blog/Blogs';
 import { useState } from 'react';
 import ProjectCard from '@/components/Project/ProjectCard';
+import BlogCard from '@/components/Blog/BlogCard';
 
 const jakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"]
@@ -143,35 +143,47 @@ export default function Home() {
               </Link>
             </div>
             <div className='w-full h-full hidden md:block relative flex-1 -z-10 md:z-10 cursor-grab active:cursor-grabbing'>
-                {loadingSpline && <div className='absolute md:left-32 lg:left-52 top-32 animate-pulse'>Rendered spline...</div>}
+                {/* {loadingSpline && <div className='absolute md:left-32 lg:left-52 top-32 animate-pulse'>Rendered spline...</div>}
                 <Spline onLoad={() => {
                   setTimeout(() => {
                     setLoadingSpline(false)
-                    }, 100)
+                    }, 500)
                   }} 
                   scene="https://prod.spline.design/lz89iZ289zK7zc8q/scene.splinecode" 
-                  className='lg:scale-[.60] md:scale-50 absolute md:right-80 -top-80 lg:right-72' 
-                />
+                  className='lg:scale-[.45] md:scale-[.45] absolute md:right-96 -top-72 lg:right-64' 
+                /> */}
             </div>
-            <div className='w-full absolute bottom-10 flex z-20 justify-center text-text-primary'>
+            <div className='w-full absolute bottom-16 sm:bottom-24 flex z-20 justify-center text-text-primary'>
               <a href="#intro">
                 <KeyboardDoubleArrowDownIcon className='text-5xl animate-bounce-arrow hover:text-text-blue' />
               </a>
             </div>
           </div>
-          <article className='pt-24' id='intro'>
-            <FeaturedBlog topFeaturedBlog={topFeaturedBlog} />
-            <Blogs blogs={featuredBlogs} />
-            <Link className="hover:scale-105 duration-100 transition-all inline-block px-4 py-2 border border-[#4B5563] text-text-primary rounded mt-4" href="/blog">See More Blog</Link>
-          </article>
+          <section className='pt-24' id='intro'>
+            <div className='border-b mb-8 border-bg-third'>
+              <h2 className="text-xl w-max font-bold text-text-primary border-b pb-4 border-text-blue">Featured Blog</h2>
+            </div>
+            <BlogCard featuredItem={topFeaturedBlog} />
+            <article className='grid gap-4 md:grid-cols-2 lg:grid-cols-3'>
+              {featuredBlogs.map(blog => {
+                return <Blogs blog={blog} />
+              })}
+            </article>
+            <Link className="w-max hover:scale-[1.02] active:scale-[.97] outline outline-1 outline-text-blue
+              transition-all duration-100 bg-none inline-block px-4 py-2 text-text-primary rounded mt-2" href="/blog">See More Blog</Link>
+          </section>
           <section className='pt-24'>
-            <h2 className="text-xl mb-8 w-max font-bold text-text-primary border-b pb-1 border-dashed border-text-pink">Featured Projects</h2>
+            <div className='border-b mb-8 border-bg-third'>
+              <h2 className="text-xl w-max font-bold text-text-primary border-b pb-4 border-text-pink">Featured Projects</h2>
+            </div>
             <article className='grid gap-4 md:grid-cols-2 lg:grid-cols-3'>
               {featuredProject.map(project => {
                 return (
-                  <ProjectCard projectItem={project} />
+                  <ProjectCard key={project.id} projectItem={project} />
                 )
               })}
+              <Link className="w-max hover:scale-[1.02] active:scale-[.97] outline outline-1 outline-text-pink
+              transition-all duration-100 bg-none inline-block px-4 py-2 text-text-primary rounded mt-2" href="/blog">See More Projects</Link>
             </article>
           </section>
     </Layout>

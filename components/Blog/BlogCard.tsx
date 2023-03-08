@@ -1,12 +1,9 @@
 import Image from "next/image"
 import InfoBlog from "./InfoBlog"
 
-const FeaturedBlog = ({topFeaturedBlog}: {topFeaturedBlog : any}) => {
+const BlogCard = ({featuredItem}: {featuredItem : any}) => {
   return (
     <>
-        <div className="w-max">
-            <h2 className="text-xl font-bold text-text-primary border-b pb-1 border-dashed border-text-pink">Featured Blogs</h2>
-        </div>
         <section className="my-8">
             <figure className="flex gap-4 flex-wrap">
                 <div className="relative w-full md:w-7/12 aspect-[16/9] overflow-hidden rounded-md">
@@ -19,14 +16,14 @@ const FeaturedBlog = ({topFeaturedBlog}: {topFeaturedBlog : any}) => {
                 </div>
                 <figcaption className="w-full md:flex-1">
                     <InfoBlog
-                        id={topFeaturedBlog.id}
-                        title={topFeaturedBlog.title}
-                        read={topFeaturedBlog.read}
-                        views={topFeaturedBlog.views}
-                        date={topFeaturedBlog.date}
-                        headline={topFeaturedBlog.headline}
-                        categories={topFeaturedBlog.categories}
-                        slug={topFeaturedBlog.slug}
+                        id={featuredItem.id}
+                        title={featuredItem.title}
+                        read={featuredItem.read}
+                        views={featuredItem.views}
+                        date={featuredItem.date}
+                        headline={featuredItem.headline}
+                        categories={featuredItem.categories}
+                        slug={featuredItem.slug}
                     />
                 </figcaption>
             </figure>
@@ -35,4 +32,4 @@ const FeaturedBlog = ({topFeaturedBlog}: {topFeaturedBlog : any}) => {
   )
 }
 
-export default FeaturedBlog
+export default BlogCard
