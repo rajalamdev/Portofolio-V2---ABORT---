@@ -166,7 +166,7 @@ export default function Home() {
             <BlogCard featuredItem={topFeaturedBlog} />
             <article className='grid gap-4 md:grid-cols-2 lg:grid-cols-3'>
               {featuredBlogs.map(blog => {
-                return <Blogs blog={blog} />
+                return <Blogs key={blog.id} blog={blog} />
               })}
             </article>
             <Link className="w-max hover:scale-[1.02] active:scale-[.97] outline outline-1 outline-text-blue
